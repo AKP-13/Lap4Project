@@ -41,9 +41,14 @@ INSTALLED_APPS = [
     'moods.apps.MoodsConfig',
     'users.apps.UsersConfig',
     'rest_framework',
+    'corsheaders',
+
+    'frontend',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', # new
+    'django.middleware.common.CommonMiddleware', # new
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -124,3 +129,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'moods-home'
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+]

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'moods.apps.MoodsConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [

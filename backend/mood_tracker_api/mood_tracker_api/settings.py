@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'moods.apps.MoodsConfig',
     'users.apps.UsersConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

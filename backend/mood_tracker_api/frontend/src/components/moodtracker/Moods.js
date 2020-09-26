@@ -4,6 +4,10 @@ import PropTypes from "prop-types";
 import { getMoods } from "../../actions/moods";
 
 class Moods extends Component {
+  static propTypes = {
+    moods: PropTypes.array.isRequired,
+  };
+
   render() {
     return (
       <div>
@@ -13,4 +17,8 @@ class Moods extends Component {
   }
 }
 
-export default connect(Moods);
+const mapStateToProps = (state) => ({
+  moods: state.moods.moods, //we wants the moods reducer and the moods within that! moods=[] now we have a prop called moods
+});
+
+export default connect(mapStateToProps)(Moods);

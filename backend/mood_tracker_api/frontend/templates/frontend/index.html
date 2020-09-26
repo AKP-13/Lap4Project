@@ -6,10 +6,10 @@
   <title>Django REST with React</title>
 </head>
 <body>
-<div id="app">
-    <!-- React will load here -->
-</div>
+  <div id="app">
+      <!-- React will load here -->
+  </div>
+  {% load static %}
+  <script src="{% static 'frontend/main.js' %}"></script>
 </body>
-{% load static %}
-<script src="{% static 'frontend/main.js' %}"></script>
 </html>

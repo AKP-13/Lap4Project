@@ -7,7 +7,7 @@ class Header extends Component {
                 <nav>
                     <ul>
                         <li>Home</li>
-                        <li>Tracker</li>
+                        <li>Mood Tracker</li>
                         <li>Journal</li>
                     </ul>
                 </nav>

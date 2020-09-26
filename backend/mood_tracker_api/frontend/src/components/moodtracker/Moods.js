@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { getMoods } from "../../actions/moods";
 
 class Moods extends Component {
   render() {
@@ -10,4 +13,4 @@ class Moods extends Component {
   }
 }
 
-export default Moods;
+export default connect(Moods);

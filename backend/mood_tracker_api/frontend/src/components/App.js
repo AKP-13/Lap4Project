@@ -1,17 +1,20 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
 import ReactDOM from 'react-dom';
 
+
 // components
-import Header from './layout/Header'
+import Header from './layout/Header';
+import Dashboard from './moodtracker/Dashboard';
+
 
 class App extends Component {
   render() {
     return (
-        <div>
+        <Fragment>
             <Header />
-            <h1>Hey I Am rendering</h1>
-        </div>
+            <Dashboard />
+        </Fragment>
     );
   }
 }

@@ -1,11 +1,14 @@
+import axios from "axios";
+
 import { GET_MOODS } from "./types";
 
 // GET MOODS
-export const getMoods = () => {
+export const getMoods = () => (dispatch) => {
   // make fetch request to localhost:8000/api/
-  return (dispatch) => {
-    fetch("http://localhost:8000/api/")
-      .then((resp) => console.log(resp.json()))
-      .then((moods) => dispatch({ type: "GET_MOODS", payload: moods }));
-  };
+  axios
+    .get("http://localhost:8000/api/")
+    .then((res) => {
+      dispatch({ type: GET_MOODS, payload: res.data });
+    })
+    .catch((err) => console.log(err));
 };

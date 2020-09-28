@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, permissions
 from .models import Mood
 from .serializers import MoodSerializer
 
@@ -7,6 +7,10 @@ from .serializers import MoodSerializer
 
 # Create your views here.
 class ListMood(generics.ListCreateAPIView):
+    permission_classes = [
+        permissions.IsAuthenticated
+    ]
+
     queryset = Mood.objects.all() # query that grabs all the Moods
     serializer_class = MoodSerializer
 

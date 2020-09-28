@@ -1,4 +1,4 @@
-import { GET_MOODS, DELETE_MOOD } from "../actions/types.js";
+import { GET_MOODS, DELETE_MOOD, ADD_MOOD } from "../actions/types.js";
 
 const initialState = {
   moods: [],
@@ -13,6 +13,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         moods: state.moods.filter((mood) => mood.id !== action.payload),
+      };
+    case ADD_MOOD:
+      return {
+        ...state,
+        moods: [...state.moods, action.payload],
       };
     default:
       return state;

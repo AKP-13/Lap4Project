@@ -38,12 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'moods.apps.MoodsConfig',
-    'users.apps.UsersConfig',
+    'moods.apps.MoodsConfig', #made app
+    'users.apps.UsersConfig', #made app
+
     'rest_framework',
     'corsheaders',
 
-    'frontend',
+    'frontend', #made app
 ]
 
 MIDDLEWARE = [
@@ -132,4 +133,5 @@ LOGIN_REDIRECT_URL = 'moods-home'
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
+    'http://localhost:8000',
 ]

@@ -6,6 +6,7 @@ import { getMoods, deleteMood } from "../../actions/moods";
 class Moods extends Component {
   static propTypes = {
     moods: PropTypes.array.isRequired,
+    getMoods: PropTypes.func.isRequired,
     deleteMood: PropTypes.func.isRequired,
   };
 
@@ -23,8 +24,8 @@ class Moods extends Component {
         {/* map over moods */}
         {this.props.moods.map((mood) => {
           return (
-            <Fragment>
-              <h2 key={mood.id}>
+            <Fragment key={mood.id}>
+              <h2>
                 Mood Id: {mood.id} | Mood Date: {mood.date} | Mood Level:
                 {mood.moodlevel}
               </h2>

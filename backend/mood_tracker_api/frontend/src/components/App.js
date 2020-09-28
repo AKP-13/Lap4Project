@@ -23,6 +23,7 @@ import Dashboard from "./moodtracker/Dashboard";
 import Alerts from "./layout/Alerts";
 import Login from "./users/Login";
 import Register from "./users/Register";
+import PrivateRoute from "./common/PrivateRoute";
 
 // redux store
 import { Provider } from "react-redux";
@@ -38,7 +39,7 @@ class App extends Component {
               <Header />
               <Alerts />
               <Switch>
-                <Route exact path="/" component={Dashboard} />
+                <PrivateRoute exact path="/" component={Dashboard} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
               </Switch>

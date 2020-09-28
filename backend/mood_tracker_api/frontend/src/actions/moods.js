@@ -1,4 +1,5 @@
 import axios from "axios";
+import { createMessage } from "./messages";
 
 import { GET_MOODS, DELETE_MOOD, ADD_MOOD, GET_ERRORS } from "./types";
 
@@ -13,12 +14,13 @@ export const getMoods = () => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
-// DELETE MOOD [DOES NOT CURRENTLY WORK]
+// DELETE MOOD
 export const deleteMood = (id) => (dispatch) => {
   // make fetch request to localhost:8000/api/
   axios
     .delete(`http://localhost:8000/api/${id}`)
     .then((res) => {
+      dispatch(createMessage({ deleteMood: "Mood Deleted" }));
       dispatch({ type: DELETE_MOOD, payload: id });
     })
     .catch((err) => console.log(err));

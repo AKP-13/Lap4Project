@@ -32,6 +32,7 @@ export const addMood = (mood) => (dispatch) => {
   axios
     .post("http://localhost:8000/api/", mood)
     .then((res) => {
+      dispatch(createMessage({ addMood: "Mood Added" }));
       dispatch({ type: ADD_MOOD, payload: res.data });
     })
     .catch((err) => {

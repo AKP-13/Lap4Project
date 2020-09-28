@@ -11,12 +11,6 @@ import {
 import { Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 
-//Alert Options
-const alertOptions = {
-  timeout: 3000,
-  position: "top center",
-};
-
 // components
 import Header from "./layout/Header";
 import Dashboard from "./moodtracker/Dashboard";
@@ -28,6 +22,12 @@ import PrivateRoute from "./common/PrivateRoute";
 // redux store
 import { Provider } from "react-redux";
 import store from "../store";
+
+//Alert Options
+const alertOptions = {
+  timeout: 3000,
+  position: "top center",
+};
 
 class App extends Component {
   render() {

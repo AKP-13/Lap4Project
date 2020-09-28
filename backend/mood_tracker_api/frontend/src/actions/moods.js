@@ -1,7 +1,7 @@
 import axios from "axios";
-import { createMessage } from "./messages";
+import { createMessage, returnErrors } from "./messages";
 
-import { GET_MOODS, DELETE_MOOD, ADD_MOOD, GET_ERRORS } from "./types";
+import { GET_MOODS, DELETE_MOOD, ADD_MOOD } from "./types";
 
 // GET MOODS
 export const getMoods = () => (dispatch) => {
@@ -11,7 +11,9 @@ export const getMoods = () => (dispatch) => {
     .then((res) => {
       dispatch({ type: GET_MOODS, payload: res.data });
     })
-    .catch((err) => console.log(err));
+    .catch((err) =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
 };
 
 // DELETE MOOD
@@ -35,14 +37,7 @@ export const addMood = (mood) => (dispatch) => {
       dispatch(createMessage({ addMood: "Mood Added" }));
       dispatch({ type: ADD_MOOD, payload: res.data });
     })
-    .catch((err) => {
-      const errors = {
-        msg: err.response.data,
-        status: err.response.status,
-      };
-      dispatch({
-        type: GET_ERRORS,
-        payload: errors,
-      });
-    });
+    .catch((err) =>
+      dispatch(returnErrors(err.response.data, err.response.status))
+    );
 };

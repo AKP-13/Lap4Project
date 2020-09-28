@@ -32,7 +32,7 @@ class Form extends Component {
     const { date, moodlevel } = this.state;
     return (
       <div>
-        <h2>Add Lead</h2>
+        <h2>Add Mood</h2>
         <form onSubmit={this.onSubmit}>
           <div>
             <label>Date</label>
@@ -44,9 +44,12 @@ class Form extends Component {
               value={date}
             />
           </div>
+          {/* Add Mood Level */}
           <div className="form-group">
             <label>Mood-level</label>
             <input
+              max="5"
+              min="1"
               className="form-control"
               type="number"
               name="moodlevel"

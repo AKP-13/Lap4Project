@@ -25,7 +25,6 @@ class Form extends Component {
       date: "",
       moodlevel: "",
     });
-    console.log("submit");
   };
 
   render() {

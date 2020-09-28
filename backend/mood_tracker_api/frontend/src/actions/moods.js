@@ -32,5 +32,5 @@ export const addMood = (mood) => (dispatch) => {
     .then((res) => {
       dispatch({ type: ADD_MOOD, payload: res.data });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err.response.data));
 };

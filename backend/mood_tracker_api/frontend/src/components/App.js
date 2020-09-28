@@ -1,6 +1,12 @@
 import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
 import ReactDOM from "react-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
 import { Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
@@ -15,6 +21,8 @@ const alertOptions = {
 import Header from "./layout/Header";
 import Dashboard from "./moodtracker/Dashboard";
 import Alerts from "./layout/Alerts";
+import Login from "./users/Login";
+import Register from "./users/Register";
 
 // redux store
 import { Provider } from "react-redux";
@@ -25,11 +33,17 @@ class App extends Component {
     return (
       <Provider store={store}>
         <AlertProvider template={AlertTemplate} {...alertOptions}>
-          <Fragment>
-            <Header />
-            <Alerts />
-            <Dashboard />
-          </Fragment>
+          <Router>
+            <Fragment>
+              <Header />
+              <Alerts />
+              <Switch>
+                <Route exact path="/" component={Dashboard} />
+                <Route exact path="/register" component={Register} />
+                <Route exact path="/login" component={Login} />
+              </Switch>
+            </Fragment>
+          </Router>
         </AlertProvider>
       </Provider>
     );

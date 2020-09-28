@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GET_MOODS, DELETE_MOOD, ADD_MOOD } from "./types";
+import { GET_MOODS, DELETE_MOOD, ADD_MOOD, GET_ERRORS } from "./types";
 
 // GET MOODS
 export const getMoods = () => (dispatch) => {
@@ -32,5 +32,14 @@ export const addMood = (mood) => (dispatch) => {
     .then((res) => {
       dispatch({ type: ADD_MOOD, payload: res.data });
     })
-    .catch((err) => console.log(err.response.data));
+    .catch((err) => {
+      const errors = {
+        msg: err.response.data,
+        status: err.response.status,
+      };
+      dispatch({
+        type: GET_ERRORS,
+        payload: errors,
+      });
+    });
 };

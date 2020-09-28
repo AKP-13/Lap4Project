@@ -8,6 +8,8 @@ import {
     LOGIN_FAIL,
     LOGIN_SUCCESS,
     LOGOUT_SUCCESS,
+    REGISTER_SUCCESS,
+    REGISTER_FAIL,
 } from "./types";
 
 // CHECK TOKEN & LOAD USER

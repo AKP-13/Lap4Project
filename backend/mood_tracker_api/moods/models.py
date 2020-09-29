@@ -7,8 +7,8 @@ from django.contrib.auth.models import User
 class Mood(models.Model):
     date = models.DateField(default=date.today)
     moodlevel = models.PositiveIntegerField(null=False, validators=[MinValueValidator(1), MaxValueValidator(5)])
-    user = models.ForeignKey(User, related_name="moods", on_delete=models.CASCADE, null=True)
+    owner = models.ForeignKey(User, related_name="moods", on_delete=models.CASCADE, null=True)
     
     #name our keys to something readable
     def __str__(self):
-        return f'{self.moodlevel} {self.date}'
+        return f'{self.moodlevel} {self.date}';

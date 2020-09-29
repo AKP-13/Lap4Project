@@ -18,7 +18,7 @@ class heatMap extends Component {
     // to get the Moods before the component mounts
     componentDidMount() {
         this.props.getMoods();
-        console.log("component Did Mount");
+        // console.log("component Did Mount");
     }
     render() {
         // Heat Map Logic
@@ -47,7 +47,7 @@ class heatMap extends Component {
         for (const date of ourdates) {
             for (const dat of dateArr) {
                 if (dat.includes(date)) {
-                    console.log(dateArr.indexOf(dat));
+                    // console.log(dateArr.indexOf(dat));
                     indices.push(dateArr.indexOf(dat));
                 }
             }
@@ -59,7 +59,7 @@ class heatMap extends Component {
             moodsArr[idx] = ourmoods[i];
             i++;
         }
-        console.log(moodsArr);
+        // console.log(moodsArr);
 
         //new date array in string format to compare to days, we wanna splice on first Monday
         var getDateArray2 = function (start, end) {
@@ -82,17 +82,17 @@ class heatMap extends Component {
                 x.push(dateArr2.indexOf(date));
             }
         }
-        console.log(x);
+        // console.log(x);
         let firstmonday = x[0];
-        console.log(firstmonday);
-        console.log(moodsArr.length);
+        // console.log(firstmonday);
+        // console.log(moodsArr.length);
 
         const result = new Array(Math.floor(moodsArr.length / n))
             .fill()
             .map((_) => moodsArr.splice(firstmonday, n));
-        console.log(
-            `FIRST spliced ARRAY OF ARRAYS ${result} with length of ${result.length}`
-        );
+        // console.log(
+        //     `FIRST spliced ARRAY OF ARRAYS ${result} with length of ${result.length}`
+        // );
 
         //for all arrays in result array, if the array has length <7, then fill it with zeros
         for (const arr of result) {
@@ -100,7 +100,7 @@ class heatMap extends Component {
                 arr.push(0);
             }
         }
-        console.log(result);
+        // console.log(result);
         //for all the values before first Monday, make another array and fill the first instances with zeros. Push this new array in the results array, at the first position.
         let firstArr = new Array(7);
         //make first positions zeros
@@ -114,14 +114,14 @@ class heatMap extends Component {
             firstArr[i] = moodsArr[c];
             c++;
         }
-        console.log(firstArr);
+        // console.log(firstArr);
 
         result.unshift(firstArr);
-        console.log(result);
+        // console.log(result);
 
         //Heat Map
-        console.log("I am from HeatMap.js");
-        console.log(ourmoods, ourdates);
+        // console.log("I am from HeatMap.js");
+        // console.log(ourmoods, ourdates);
         const data = result;
         return (
             <div style={{ fontSize: "13px" }}>

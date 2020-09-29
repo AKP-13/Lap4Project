@@ -6,9 +6,9 @@ import HeatMap from "./HeatMap";
 export default function Dashboard() {
     return (
         <Fragment>
+            <HeatMap />
             <Form />
             <Moods />
-            <HeatMap />
         </Fragment>
     );
 }

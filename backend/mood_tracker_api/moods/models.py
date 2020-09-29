@@ -11,4 +11,4 @@ class Mood(models.Model):
     
     #name our keys to something readable
     def __str__(self):
-        return f'{self.moodlevel} {self.date}'
+        return f'{self.moodlevel} {self.date}';

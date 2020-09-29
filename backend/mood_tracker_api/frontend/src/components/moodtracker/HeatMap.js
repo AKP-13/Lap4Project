@@ -15,10 +15,8 @@ class heatMap extends Component {
         deleteMood: PropTypes.func.isRequired,
     };
 
-    // to get the Moods before the component mounts
     componentDidMount() {
         this.props.getMoods();
-        // console.log("component Did Mount");
     }
     render() {
         // Heat Map Logic
@@ -42,7 +40,7 @@ class heatMap extends Component {
         // moodlevelarray and datearray from user's data
         let ourmoods = this.props.moods.map((mood) => mood.moodlevel);
         let ourdates = this.props.moods.map((mood) => mood.date);
-        //find indices at which dates match with our comparison array and make a new array of moods
+        //find indices at which dates match with our comparison array and make a new array of moods with the right values at the right indices
         let indices = [];
         for (const date of ourdates) {
             for (const dat of dateArr) {
@@ -150,7 +148,7 @@ class heatMap extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    moods: state.moods.moods, //we wants the moods reducer and the moods within that! moods=[] now we have a prop called moods
+    moods: state.moods.moods, 
 });
 
 export default connect(mapStateToProps, { getMoods, deleteMood })(heatMap);

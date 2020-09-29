@@ -20,7 +20,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', include('frontend.urls')),
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('api/', include('moods.urls')), #allows you to include moods apps urls file
     path('api/', include('users.urls')),
     # path('signup/', user_views.signup, name='signup'),

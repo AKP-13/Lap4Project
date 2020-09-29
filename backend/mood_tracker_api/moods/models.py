@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Mood(models.Model):
     date = models.DateField(default=date.today)
-    moodlevel = models.PositiveIntegerField(default=4, null=False, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    moodlevel = models.PositiveIntegerField(null=False, validators=[MinValueValidator(1), MaxValueValidator(5)])
     user = models.ForeignKey(User, related_name="moods", on_delete=models.CASCADE, null=True)
     
     #name our keys to something readable

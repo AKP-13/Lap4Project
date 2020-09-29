@@ -18,6 +18,16 @@ export class Alerts extends Component {
             if (error.msg.non_field_errors)
                 alert.error(error.msg.non_field_errors.join());
             if (error.msg.username) alert.error(error.msg.username.join());
+            if (error.msg.sleepQuality)
+                alert.error(`Sleep Quality: ${error.msg.sleepQuality.join()}`);
+            if (error.msg.sleepHours)
+                alert.error(`Sleep Hours: ${error.msg.sleepHours.join()}`);
+            if (error.msg.exerciseQuality)
+                alert.error(
+                    `Exercise Quality: ${error.msg.exerciseQuality.join()}`
+                );
+            if (error.msg.dietQuality)
+                alert.error(`Diet Quality: ${error.msg.dietQuality.join()}`);
         }
 
         if (message !== prevProps.mesasge) {

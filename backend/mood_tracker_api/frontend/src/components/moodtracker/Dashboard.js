@@ -4,11 +4,11 @@ import Moods from "./Moods";
 import HeatMap from "./HeatMap";
 
 export default function Dashboard() {
-    return (
-        <Fragment>
-            <HeatMap />
-            <Form />
-            <Moods />
-        </Fragment>
-    );
+  return (
+    <Fragment>
+      <HeatMap />
+      {/* <Form /> */}
+      {/* <Moods /> */}
+    </Fragment>
+  );
 }

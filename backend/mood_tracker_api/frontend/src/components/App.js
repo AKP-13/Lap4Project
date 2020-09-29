@@ -14,6 +14,9 @@ import AlertTemplate from "react-alert-template-basic";
 // components
 import Header from "./layout/Header";
 import Dashboard from "./moodtracker/Dashboard";
+import Form from "./moodtracker/Form";
+import Moods from "./moodtracker/Moods";
+import Journal from "./moodtracker/Journal";
 import Alerts from "./layout/Alerts";
 import Login from "./users/Login";
 import Register from "./users/Register";
@@ -47,6 +50,9 @@ class App extends Component {
                 <PrivateRoute exact path="/" component={Dashboard} />
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
+                <Route exact path="/addmood" component={Form} />
+                <Route exact path="/moodtracker" component={Moods} />
+                <Route exact path="/journal" component={Journal} />
               </Switch>
             </Fragment>
           </Router>

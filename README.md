@@ -11,6 +11,13 @@
 
 ## Description
 
+## Tomorrow (Wednesday)
+
+-   On Hover display stats
+-   Journal (add post, read all entries)
+-   Filter by Moodlevel
+-   Make add mood in different component
+
 ## Future Features
 
 ### Contributors

@@ -13,7 +13,7 @@ class Moods extends Component {
     // to get the Moods before the component mounts
     componentDidMount() {
         this.props.getMoods();
-        console.log("component Did Mount");
+        // console.log("component Did Mount");
     }
 
     render() {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 // import { getMoods, deleteMood } from "../../actions/moods";
-import { addJournal, getJournal, deleteJournal } from "../../actions/journal";
+import { addJournal } from "../../actions/journal";
 
 export class Journal extends Component {
     state = {

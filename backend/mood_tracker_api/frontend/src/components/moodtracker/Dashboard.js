@@ -5,12 +5,12 @@ import HeatMap from "./HeatMap";
 import BarPlot from "./BarPlot";
 
 export default function Dashboard() {
-    return (
-        <Fragment>
-            <HeatMap />
-            {/* <Form /> */}
-            {/* <Moods /> */}
-            <BarPlot />
-        </Fragment>
-    );
+  return (
+    <Fragment>
+      <HeatMap />
+      {/* <Form /> */}
+      {/* <Moods /> */}
+      <BarPlot />
+    </Fragment>
+  );
 }

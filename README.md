@@ -2,21 +2,20 @@
 
 ## instruction
 
--   cd into project
--   pipenv install
--   pipenv shell
--   npm install
--   npm run dev (to run webpack)
--   in second terminal, cd into project and run: python manage.py runserver (to run django server)
+- cd into project
+- pipenv install
+- pipenv shell
+- npm install
+- npm run dev (to run webpack)
+- in second terminal, cd into project and run: python manage.py runserver (to run django server)
 
 ## Description
 
 ## Tomorrow (Wednesday)
 
--   On Hover display stats
--   Journal (add post, read all entries)
--   Filter by Moodlevel
--   Make add mood in different component
+- On Hover display stats
+- Journal (add post, read all entries)
+- Filter by Moodlevel
 
 ## Future Features
 

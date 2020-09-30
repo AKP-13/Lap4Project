@@ -14,7 +14,7 @@ export class Journal extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        console.log("You clicked submit!");
+        console.log(this.state.journalEntry);
     };
 
     render() {

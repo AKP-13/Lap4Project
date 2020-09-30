@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getMoods, deleteMood } from "../../actions/moods";
 
-class BarPlot extends Component {
+class BarPlotBad extends Component {
   static propTypes = {
     moods: PropTypes.array.isRequired,
     getMoods: PropTypes.func.isRequired,
@@ -23,7 +23,7 @@ class BarPlot extends Component {
     //fget indices of good moods only
     let idxs = [];
     for (let i = 0; i <= moodlevels.length - 1; i++) {
-      if (moodlevels[i] == 5 || moodlevels[i] == 4) {
+      if (moodlevels[i] == 1 || moodlevels[i] == 2) {
         idxs.push(i);
       }
     }
@@ -64,40 +64,42 @@ class BarPlot extends Component {
     return (
       <div>
         <h4>
-          Your mood was at its best when you rated your habits as follows:
+          Your mood was not so good when you rated your habits as follows:
         </h4>
         {/* change hover over number to ceiling */}
-
-        <Bar
-          data={chartData}
-          options={{
-            legend: {
-              display: this.props.displayLegend,
-              position: this.props.legendPosition,
-            },
-            scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    max: 3,
-                    min: 0,
-                    stepSize: 1,
+        {/* Bar Chart for Bad Days */}
+        <div class="barplot">
+          <Bar
+            data={chartData}
+            options={{
+              legend: {
+                display: this.props.displayLegend,
+                position: this.props.legendPosition,
+              },
+              scales: {
+                yAxes: [
+                  {
+                    ticks: {
+                      max: 3,
+                      min: 0,
+                      stepSize: 1,
+                    },
+                    gridLines: {
+                      drawOnChartArea: false,
+                    },
                   },
-                  gridLines: {
-                    drawOnChartArea: false,
+                ],
+                xAxes: [
+                  {
+                    gridLines: {
+                      drawOnChartArea: false,
+                    },
                   },
-                },
-              ],
-              xAxes: [
-                {
-                  gridLines: {
-                    drawOnChartArea: false,
-                  },
-                },
-              ],
-            },
-          }}
-        />
+                ],
+              },
+            }}
+          />
+        </div>
       </div>
     );
   }
@@ -107,4 +109,4 @@ const mapStateToProps = (state) => ({
   moods: state.moods.moods,
 });
 
-export default connect(mapStateToProps, { getMoods, deleteMood })(BarPlot);
+export default connect(mapStateToProps, { getMoods, deleteMood })(BarPlotBad);

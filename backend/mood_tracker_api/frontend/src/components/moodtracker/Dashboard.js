@@ -3,6 +3,7 @@ import Form from "./Form";
 import Moods from "./Moods";
 import HeatMap from "./HeatMap";
 import BarPlot from "./BarPlot";
+import BarPlotBad from "./BarPlotBad";
 
 export default function Dashboard() {
   return (
@@ -11,6 +12,7 @@ export default function Dashboard() {
       {/* <Form /> */}
       {/* <Moods /> */}
       <BarPlot />
+      <BarPlotBad />
     </Fragment>
   );
 }

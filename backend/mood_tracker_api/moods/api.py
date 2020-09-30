@@ -1,10 +1,11 @@
 from moods.models import Mood
+from moods.models import Journal
 from rest_framework import viewsets, permissions
 from .serializers import MoodSerializer
+from .serializers import JournalSerializer
 
-# Lead Viewset
 
-
+# Mood Viewset
 class MoodViewSet(viewsets.ModelViewSet):
     permission_classes = [
         permissions.IsAuthenticated,
@@ -16,3 +17,19 @@ class MoodViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+
+# Journal View Set
+class JournalViewSet(viewsets.ModelViewSet):
+    permission_classes = [
+        permissions.IsAuthenticated,
+    ]
+    serializer_class = JournalSerializer
+
+    def get_queryset(self):
+        return self.request.user.journals.all()
+
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
+

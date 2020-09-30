@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getMoods, deleteMood } from "../../actions/moods";
 
-class BarPlot extends Component {
+class BPSleepBad extends Component {
     static propTypes = {
         moods: PropTypes.array.isRequired,
         getMoods: PropTypes.func.isRequired,
@@ -16,14 +16,12 @@ class BarPlot extends Component {
     }
 
     render() {
-        let exerciseL = this.props.moods.map((mood) => mood.exerciseQuality);
-        let dietL = this.props.moods.map((mood) => mood.dietQuality);
-        let sleepL = this.props.moods.map((mood) => mood.sleepQuality);
+        let sleephours = this.props.moods.map((mood) => mood.sleepHours);
         let moodlevels = this.props.moods.map((mood) => mood.moodlevel);
         //fget indices of good moods only
         let idxs = [];
         for (let i = 0; i <= moodlevels.length - 1; i++) {
-            if (moodlevels[i] == 5 || moodlevels[i] == 4) {
+            if (moodlevels[i] == 1 || moodlevels[i] == 2) {
                 idxs.push(i);
             }
         }
@@ -34,27 +32,41 @@ class BarPlot extends Component {
             }
         }
         //invoke
-        let filtereddiet = [];
-        let filteredexercise = [];
-        let filteredsleep = [];
-        filterArr(dietL, filtereddiet);
-        filterArr(sleepL, filteredsleep);
-        filterArr(exerciseL, filteredexercise);
-        //get average
-        const arrAvg = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length;
-        let sleepavg = arrAvg(filteredsleep);
-        let exerciseavg = arrAvg(filteredexercise);
-        let dietavg = arrAvg(filtereddiet);
+        let sleephours2 = [];
+        filterArr(sleephours, sleephours2);
+        //count instances of each sleep hours duration
+        function counter(arr, val) {
+            var n = 0;
+            for (let i = 0; i <= arr.length - 1; i++) {
+                if (arr[i] == val) {
+                    n++;
+                }
+            }
+            return n;
+        }
+        let four = counter(sleephours2, 4);
+        let five = counter(sleephours2, 5);
+        let six = counter(sleephours2, 6);
+        let seven = counter(sleephours2, 7);
+        let eight = counter(sleephours2, 8);
+        let nine = counter(sleephours2, 9);
+        let ten = counter(sleephours2, 10);
+        let eleven = counter(sleephours2, 11);
 
         const chartData = {
-            labels: ["Exercise", "Sleep", "Diet"],
+            labels: ["4", "5", "6", "7", "8", "9", "10", "11"],
             datasets: [
                 {
                     // label: "Population",
-                    data: [exerciseavg, sleepavg, dietavg],
+                    data: [four, five, six, seven, eight, nine, ten, eleven],
                     backgroundColor: [
-                        "rgba(255, 99, 132, 0.6)",
-                        "rgba(54, 162, 235, 0.6)",
+                        "rgba(255, 206, 86, 0.6)",
+                        "rgba(255, 206, 86, 0.6)",
+                        "rgba(255, 206, 86, 0.6)",
+                        "rgba(255, 206, 86, 0.6)",
+                        "rgba(255, 206, 86, 0.6)",
+                        "rgba(255, 206, 86, 0.6)",
+                        "rgba(255, 206, 86, 0.6)",
                         "rgba(255, 206, 86, 0.6)",
                     ],
                 },
@@ -64,8 +76,7 @@ class BarPlot extends Component {
         return (
             <div>
                 <h4>
-                    Your mood was at its best when you rated your habits as
-                    follows:
+                    Frequency of hours of sleep when your mood was at its best:
                 </h4>
                 {/* change hover over number to ceiling */}
 
@@ -80,7 +91,7 @@ class BarPlot extends Component {
                             yAxes: [
                                 {
                                     ticks: {
-                                        max: 3,
+                                        max: 10,
                                         min: 0,
                                         stepSize: 1,
                                     },
@@ -108,4 +119,4 @@ const mapStateToProps = (state) => ({
     moods: state.moods.moods,
 });
 
-export default connect(mapStateToProps, { getMoods, deleteMood })(BarPlot);
+export default connect(mapStateToProps, { getMoods, deleteMood })(BPSleepBad);

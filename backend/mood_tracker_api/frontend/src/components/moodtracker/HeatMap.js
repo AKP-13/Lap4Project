@@ -42,6 +42,10 @@ class heatMap extends Component {
         // moodlevelarray and datearray from user's data
         let ourmoods = this.props.moods.map((mood) => mood.moodlevel);
         let ourdates = this.props.moods.map((mood) => mood.date);
+        let oursleepQ = this.props.moods.map((mood) => mood.sleepQuality);
+        let ourexerciseQ = this.props.moods.map((mood) => mood.exerciseQuality);
+        let ourdietQ = this.props.moods.map((mood) => mood.dietQuality);
+        let oursleephours = this.props.moods.map((mood) => mood.sleepHours);
         //find indices at which dates match with our comparison array and make a new array of moods
         let indices = [];
         for (const date of ourdates) {
@@ -54,12 +58,25 @@ class heatMap extends Component {
         }
 
         let moodsArr = new Array(dateArr.length).fill(0);
-        let i = 0;
-        for (const idx of indices) {
-            moodsArr[idx] = ourmoods[i];
-            i++;
+        const replaceFunc = (newArr, ourarray) => {
+            let i = 0;
+            for (const idx of indices) {
+                newArr[idx] = ourarray[i];
+                i++;
+            }
         }
-        // console.log(moodsArr);
+        replaceFunc(moodsArr, ourmoods)
+        //need the following arrays for the heatmap on click
+        let sleepQArr = new Array(dateArr.length).fill(0)
+        let exerciseQArr= new Array(dateArr.length).fill(0)
+        let dietQArr = new Array(dateArr.length).fill(0)
+        let sleepHArr = new Array(dateArr.length).fill(0)
+        
+        replaceFunc(sleepQArr, oursleepQ)
+        replaceFunc(exerciseQArr, ourexerciseQ)
+        replaceFunc(dietQArr, ourdietQ)
+        replaceFunc(sleepHArr, oursleephours)
+        // console.log(sleepQArr)
 
         //new date array in string format to compare to days, we wanna splice on first Monday
         var getDateArray2 = function (start, end) {
@@ -90,9 +107,6 @@ class heatMap extends Component {
         const result = new Array(Math.floor(moodsArr.length / n))
             .fill()
             .map((_) => moodsArr.splice(firstmonday, n));
-        // console.log(
-        //     `FIRST spliced ARRAY OF ARRAYS ${result} with length of ${result.length}`
-        // );
 
         //for all arrays in result array, if the array has length <7, then fill it with zeros
         for (const arr of result) {
@@ -106,23 +120,23 @@ class heatMap extends Component {
         //make first positions zeros
         let num = 7 - firstmonday;
         let c = 0;
-        for (i = 0; i < num; i++) {
+        for (let i = 0; i < num; i++) {
             firstArr[i] = 0;
         }
         //fill the rest of the values
-        for (i = num; i <= 6; i++) {
+        for (let i = num; i <= 6; i++) {
             firstArr[i] = moodsArr[c];
             c++;
         }
         // console.log(firstArr);
 
         result.unshift(firstArr);
-        // console.log(result);
-
-        //Heat Map
-        // console.log("I am from HeatMap.js");
-        // console.log(ourmoods, ourdates);
         const data = result;
+        //function to convert the x,y cords from heatmap to the index in the array, will get invoked onclicking heatmap square 
+        const convertToIndex = (x,y) => {
+            let heatmapIndex = 7*y + x
+            return heatmapIndex
+        }
         return (
             <div style={{ fontSize: "13px" }}>
                 <HeatMap
@@ -134,7 +148,8 @@ class heatMap extends Component {
                     data={data}
                     squares
                     height={45}
-                    onClick={(x, y) => alert(`Clicked ${x}, ${y}`)}
+                    onClick={(x, y) => alert(`Clicked index ${convertToIndex(x, y)}, \nDate: ${dateArr[convertToIndex(x, y)-num].substring(0,10)}, \nMood Level: ${result[y][x]}, \nSleep Quality: ${sleepQArr[convertToIndex(x, y)-num]}, \nExercise Quality: ${exerciseQArr[convertToIndex(x, y)-num]}, \nDiet Quality: ${dietQArr[convertToIndex(x, y)-num]}, \nHours of Sleep: ${sleepHArr[convertToIndex(x, y)-num]}`)}
+                    //🎉🎉🎉🎉we could add something prettier than an alert, looks pretty ugly🎉🎉🎉🎉
                     cellStyle={(background, value, min, max, data, x, y) => ({
                         background: `rgb(0, 151, 230, ${
                             1 - (max - value) / (max - min)

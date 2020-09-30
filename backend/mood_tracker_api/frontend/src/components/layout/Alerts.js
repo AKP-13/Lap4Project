@@ -33,6 +33,8 @@ export class Alerts extends Component {
         if (message !== prevProps.mesasge) {
             if (message.deleteMood) alert.success(message.deleteMood);
             if (message.addMood) alert.success(message.addMood);
+            if (message.deleteJournal) alert.success(message.deleteJournal);
+            if (message.addEntry) alert.success(message.addEntry);
             if (message.passwordsNotMatch)
                 alert.error(message.passwordsNotMatch);
         }

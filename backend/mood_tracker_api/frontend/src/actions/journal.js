@@ -10,7 +10,7 @@ export const getJournal = () => (dispatch, getState) => {
     axios
         .get("http://localhost:8000/api/journals/", tokenConfig(getState))
         .then((res) => {
-            dispatch({ type: GET_MOODS, payload: res.data });
+            dispatch({ type: GET_JOURNAL, payload: res.data });
         })
         .catch((err) =>
             dispatch(returnErrors(err.response.data, err.response.status))
@@ -26,7 +26,7 @@ export const deleteJournal = (id) => (dispatch, getState) => {
             tokenConfig(getState)
         )
         .then((res) => {
-            dispatch(createMessage({ deleteJournal: "Journal Deleted" }));
+            dispatch(createMessage({ deleteJournal: "Journal entry deleted" }));
             dispatch({ type: DELETE_JOURNAL, payload: id });
         })
         .catch((err) => console.log(err));
@@ -42,7 +42,7 @@ export const addJournal = (entry) => (dispatch, getState) => {
             tokenConfig(getState)
         )
         .then((res) => {
-            // dispatch(createMessage({ addEntry: "Jounral entry added" }));
+            dispatch(createMessage({ addEntry: "Journal entry added" }));
             dispatch({ type: ADD_JOURNAL, payload: res.data });
         })
         .catch((err) =>

@@ -1,24 +1,24 @@
-import { GET_ENTRY, ADD_ENTRY, DELETE_ENTRY } from "../actions/types.js";
+import { GET_JOURNAL, ADD_JOURNAL, DELETE_JOURNAL } from "../actions/types.js";
 
 const initialState = {
-    entries: [],
+    journals: [],
 };
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case GET_ENTRY:
-            return { ...state, entries: action.payload };
-        case DELETE_ENTRY:
+        case GET_JOURNAL:
+            return { ...state, journals: action.payload };
+        case DELETE_JOURNAL:
             return {
                 ...state,
-                entries: state.entries.filter(
-                    (entry) => entry.id !== action.payload
+                journals: state.journals.filter(
+                    (journal) => journal.id !== action.payload
                 ),
             };
-        case ADD_ENTRY:
+        case ADD_JOURNAL:
             return {
                 ...state,
-                entries: [...state.entries, action.payload],
+                journals: [...state.journals, action.payload],
             };
         default:
             return state;

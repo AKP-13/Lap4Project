@@ -68,7 +68,7 @@ class BarPlotBad extends Component {
         </h4>
         {/* change hover over number to ceiling */}
         {/* Bar Chart for Bad Days */}
-        <div class="barplot">
+        <div className="barplot">
           <Bar
             data={chartData}
             options={{

@@ -53,6 +53,7 @@ class Form extends Component {
       sleepHours: "",
       notes: "",
     });
+    this.props.closeModal();
   };
 
   render() {

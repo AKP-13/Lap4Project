@@ -25,9 +25,6 @@ export class Header extends Component {
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <NavLink to="/addmood">Add Mood</NavLink>
-        </li>
-        <li>
           <NavLink to="/moodtracker">Mood Tracker</NavLink>
         </li>
         <li>

@@ -134,7 +134,7 @@ class heatMap extends Component {
           data={data}
           squares
           height={45}
-          onClick={(x, y) => alert(`Clicked ${x}, ${y}`)}
+          onClick={(x, y) => alert(` ${x}, ${y}`)}
           cellStyle={(background, value, min, max, data, x, y) => ({
             background: `rgb(0, 151, 230, ${1 - (max - value) / (max - min)})`,
             fontSize: "0px",

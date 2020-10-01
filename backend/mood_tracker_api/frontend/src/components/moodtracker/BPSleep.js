@@ -44,6 +44,9 @@ class BPSleep extends Component {
             }
             return n;
         }
+        let one = counter(sleephours2, 1);
+        let two = counter(sleephours2, 2);
+        let three = counter(sleephours2, 3);
         let four = counter(sleephours2, 4);
         let five = counter(sleephours2, 5);
         let six = counter(sleephours2, 6);
@@ -54,12 +57,27 @@ class BPSleep extends Component {
         let eleven = counter(sleephours2, 11);
 
         const chartData = {
-            labels: ["4", "5", "6", "7", "8", "9", "10", "11"],
+            labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"],
             datasets: [
                 {
                     // label: "Population",
-                    data: [four, five, six, seven, eight, nine, ten, eleven],
+                    data: [
+                        one,
+                        two,
+                        three,
+                        four,
+                        five,
+                        six,
+                        seven,
+                        eight,
+                        nine,
+                        ten,
+                        eleven,
+                    ],
                     backgroundColor: [
+                        "rgba(255, 206, 86, 0.6)",
+                        "rgba(255, 206, 86, 0.6)",
+                        "rgba(255, 206, 86, 0.6)",
                         "rgba(255, 206, 86, 0.6)",
                         "rgba(255, 206, 86, 0.6)",
                         "rgba(255, 206, 86, 0.6)",
@@ -91,7 +109,19 @@ class BPSleep extends Component {
                             yAxes: [
                                 {
                                     ticks: {
-                                        max: 10,
+                                        max: Math.max(
+                                            one,
+                                            two,
+                                            three,
+                                            four,
+                                            five,
+                                            six,
+                                            seven,
+                                            eight,
+                                            nine,
+                                            ten,
+                                            eleven
+                                        ),
                                         min: 0,
                                         stepSize: 1,
                                     },

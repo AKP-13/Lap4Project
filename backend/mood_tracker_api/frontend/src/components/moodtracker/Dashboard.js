@@ -39,7 +39,15 @@ function Dashboard() {
     return (
         <Fragment>
             <div id="body">
-                <button onClick={openModal}>Add Reflection</button>
+                <div className="grid-container">
+                    <div className="grid-item">
+                        <HeatMap />
+                    </div>
+                </div>
+
+                <button id="newMood" onClick={openModal}>
+                    +
+                </button>
                 <Modal
                     isOpen={modalIsOpen}
                     onAfterOpen={afterOpenModal}
@@ -47,21 +55,12 @@ function Dashboard() {
                     style={customStyles}
                     contentLabel="Example Modal"
                 >
-                    <button onClick={closeModal}>close</button>
+                    <button onClick={closeModal}>x</button>
                     <br />
-                    <div>I am a modal</div>
                     <div>
                         <MoodForm closeModal={() => setIsOpen(false)} />
                     </div>
                 </Modal>
-
-                <div className="grid-container">
-                    <div className="grid-item">
-                        <HeatMap />
-                    </div>
-                </div>
-                {/* <MoodForm /> */}
-                {/* <Moods /> */}
 
                 <div className="grid-container-graphs">
                     <div class="grid-item-graph">

@@ -12,27 +12,56 @@
     justify-content: center;
 }
 .grid-item {
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     padding: 20px;
     margin: auto;
+    border-radius: 5px;
 }
 
 .grid-container-graphs {
     display: grid;
     grid-template-columns: 40% 40%;
-    background-color: #2196f3;
+    grid-template-rows: 30% 30%;
     padding: 10px;
     justify-content: center;
     grid-column-gap: 20px;
+    grid-row-gap: 20px;
     border-radius: 5px;
     text-align: center;
 }
 
 .grid-item-graph {
     background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     padding: 20px;
     /* font-size: 30px; */
     text-align: center;
     border-radius: 5px;
+}
+
+#newMood {
+    margin: 0 auto;
+    display: block;
+    padding: 30px;
+    border: none;
+    border-radius: 30%;
+    cursor: pointer;
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+
+.ReactModalPortal {
+    font-family: "Montserrat", sans-serif;
+    font-family: "Roboto", sans-serif;
+}
+
+.ReactModalPortal input {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.ReactModalPortal button {
+    margin: 0 auto;
+    display: block;
 }

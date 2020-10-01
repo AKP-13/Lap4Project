@@ -8,6 +8,8 @@ import BPSleep from "./BPSleep";
 import BPSleepBad from "./BPSleepBad";
 import Modal from "react-modal";
 import "./Dashboard.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const customStyles = {
     content: {
@@ -39,6 +41,7 @@ function Dashboard() {
     return (
         <Fragment>
             <div id="body">
+                <h1>October 2020</h1>
                 <div className="grid-container">
                     <div className="grid-item">
                         <HeatMap />
@@ -46,7 +49,7 @@ function Dashboard() {
                 </div>
 
                 <button id="newMood" onClick={openModal}>
-                    +
+                    <FontAwesomeIcon icon={faPlus} />
                 </button>
                 <Modal
                     isOpen={modalIsOpen}

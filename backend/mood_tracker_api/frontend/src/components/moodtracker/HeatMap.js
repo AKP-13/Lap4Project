@@ -173,7 +173,7 @@ class heatMap extends Component {
                     }
                     //🎉🎉🎉🎉we could add something prettier than an alert, looks pretty ugly🎉🎉🎉🎉
                     cellStyle={(background, value, min, max, data, x, y) => ({
-                        background: `rgb(0, 151, 230, ${
+                        background: `rgb(132,255,99, ${
                             1 - (max - value) / (max - min)
                         })`,
                         fontSize: "0px",

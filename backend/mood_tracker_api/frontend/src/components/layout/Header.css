@@ -14,19 +14,19 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(218, 192, 192);
+    background-color: rgb(240, 230, 230);
 }
 
 li,
 span {
     float: left;
     display: block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
-li a:hover {
-    background-color: #111;
+li:last-child {
+    float: right;
 }

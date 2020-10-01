@@ -91,7 +91,7 @@ class BPSleep extends Component {
                             yAxes: [
                                 {
                                     ticks: {
-                                        max: 10,
+                                        max: Math.max(four, five, six, seven, eight, nine, ten, eleven),
                                         min: 0,
                                         stepSize: 1,
                                     },

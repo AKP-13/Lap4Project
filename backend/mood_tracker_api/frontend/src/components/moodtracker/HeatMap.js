@@ -46,6 +46,7 @@ class heatMap extends Component {
         let ourexerciseQ = this.props.moods.map((mood) => mood.exerciseQuality);
         let ourdietQ = this.props.moods.map((mood) => mood.dietQuality);
         let oursleephours = this.props.moods.map((mood) => mood.sleepHours);
+        let ournotes = this.props.moods.map((mood) => mood.notes);
         //find indices at which dates match with our comparison array and make a new array of moods
         let indices = [];
         for (const date of ourdates) {
@@ -60,7 +61,7 @@ class heatMap extends Component {
         let moodsArr = new Array(dateArr.length).fill(0);
         const replaceFunc = (newArr, ourarray) => {
             let i = 0;
-            for (const idx of indices) {
+            for (let idx of indices) {
                 newArr[idx] = ourarray[i];
                 i++;
             }
@@ -71,11 +72,13 @@ class heatMap extends Component {
         let exerciseQArr= new Array(dateArr.length).fill(0)
         let dietQArr = new Array(dateArr.length).fill(0)
         let sleepHArr = new Array(dateArr.length).fill(0)
+        let notesArr = new Array(dateArr.length).fill("")
         
         replaceFunc(sleepQArr, oursleepQ)
         replaceFunc(exerciseQArr, ourexerciseQ)
         replaceFunc(dietQArr, ourdietQ)
         replaceFunc(sleepHArr, oursleephours)
+        replaceFunc(notesArr, ournotes)
         // console.log(sleepQArr)
 
         //new date array in string format to compare to days, we wanna splice on first Monday
@@ -148,7 +151,7 @@ class heatMap extends Component {
                     data={data}
                     squares
                     height={45}
-                    onClick={(x, y) => alert(`Clicked index ${convertToIndex(x, y)}, \nDate: ${dateArr[convertToIndex(x, y)-num].substring(0,10)}, \nMood Level: ${result[y][x]}, \nSleep Quality: ${sleepQArr[convertToIndex(x, y)-num]}, \nExercise Quality: ${exerciseQArr[convertToIndex(x, y)-num]}, \nDiet Quality: ${dietQArr[convertToIndex(x, y)-num]}, \nHours of Sleep: ${sleepHArr[convertToIndex(x, y)-num]}`)}
+                    onClick={(x, y) => alert(`Clicked index ${convertToIndex(x, y)}, \nDate: ${dateArr[convertToIndex(x, y)-num].substring(0,10)}, \nMood Level: ${result[y][x]}, \nSleep Quality: ${sleepQArr[convertToIndex(x, y)-num]}, \nExercise Quality: ${exerciseQArr[convertToIndex(x, y)-num]}, \nDiet Quality: ${dietQArr[convertToIndex(x, y)-num]}, \nHours of Sleep: ${sleepHArr[convertToIndex(x, y)-num]}, \nNotes: ${notesArr[convertToIndex(x, y)-num]}`)}
                     //🎉🎉🎉🎉we could add something prettier than an alert, looks pretty ugly🎉🎉🎉🎉
                     cellStyle={(background, value, min, max, data, x, y) => ({
                         background: `rgb(0, 151, 230, ${

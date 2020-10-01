@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-// import { getMoods, deleteMood } from "../../actions/moods";
 import { addJournal } from "../../actions/journal";
+import "./JournalForm.css";
 
-export class Journal extends Component {
+class JournalForm extends Component {
   state = {
     date: "",
     journal: "",
@@ -26,11 +26,12 @@ export class Journal extends Component {
       date: "",
       journal: "",
     });
+
+    this.props.closeModal();
   };
 
   render() {
     const { journal, date } = this.state;
-
     return (
       <div>
         <h1>Journal</h1>
@@ -45,7 +46,7 @@ export class Journal extends Component {
             value={date}
           />
 
-          <label htmlFor="journal">Add a journal entry:</label>
+          <label htmlFor="journal">Journal your day</label>
           <textarea
             id="journal"
             name="journal"
@@ -62,4 +63,4 @@ export class Journal extends Component {
   }
 }
 
-export default connect(null, { addJournal })(Journal);
+export default connect(null, { addJournal })(JournalForm);

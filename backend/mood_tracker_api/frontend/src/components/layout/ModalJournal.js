@@ -1,12 +1,6 @@
 import React, { Fragment } from "react";
-import MoodForm from "./MoodForm";
-import Moods from "./Moods";
-import HeatMap from "./HeatMap";
-import BarPlot from "./BarPlot";
-import BarPlotBad from "./BarPlotBad";
-import BPSleep from "./BPSleep";
-import BPSleepBad from "./BPSleepBad";
 import Modal from "react-modal";
+import JournalForm from "../moodtracker/JournalForm";
 
 const customStyles = {
   content: {
@@ -21,7 +15,7 @@ const customStyles = {
 
 Modal.setAppElement("#app");
 
-function Dashboard() {
+function ModalJournal() {
   var subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
@@ -35,9 +29,10 @@ function Dashboard() {
   function closeModal() {
     setIsOpen(false);
   }
+
   return (
     <Fragment>
-      <button onClick={openModal}>Add Reflection</button>
+      <button onClick={openModal}>Add Journal Entry</button>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -49,19 +44,11 @@ function Dashboard() {
         <br />
         <div>I am a modal</div>
         <div>
-          <MoodForm closeModal={() => setIsOpen(false)} />
+          <JournalForm closeModal={() => setIsOpen(false)} />
         </div>
       </Modal>
-
-      <HeatMap />
-      {/* <MoodForm /> */}
-      {/* <Moods /> */}
-      <BarPlot />
-      <BarPlotBad />
-      <BPSleep />
-      <BPSleepBad />
     </Fragment>
   );
 }
 
-export default Dashboard;
+export default ModalJournal;

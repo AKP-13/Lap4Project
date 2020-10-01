@@ -11,17 +11,8 @@
 
 ## Description
 
-## Tomorrow (Wednesday)
-
--   On Hover display stats
--   Journal (add post, read all entries)
--   Filter by Moodlevel
--   Make add mood in different component
-
 ## Future Features
 
 ### Contributors
 
 [Alex](https://github.com/AKP-13), [Cindy](https://github.com/cindywfeng) & [Despoina](https://github.com/despinaki)
-
-Updated from Alex branch!

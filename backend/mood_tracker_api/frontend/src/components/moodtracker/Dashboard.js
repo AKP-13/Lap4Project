@@ -7,61 +7,79 @@ import BarPlotBad from "./BarPlotBad";
 import BPSleep from "./BPSleep";
 import BPSleepBad from "./BPSleepBad";
 import Modal from "react-modal";
+import "./Dashboard.css";
 
 const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-  },
+    content: {
+        top: "50%",
+        left: "50%",
+        right: "auto",
+        bottom: "auto",
+        marginRight: "-50%",
+        transform: "translate(-50%, -50%)",
+    },
 };
 
 Modal.setAppElement("#app");
 
 function Dashboard() {
-  var subtitle;
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  function openModal() {
-    setIsOpen(true);
-  }
+    var subtitle;
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+    function openModal() {
+        setIsOpen(true);
+    }
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-  }
+    function afterOpenModal() {
+        // references are now sync'd and can be accessed.
+    }
 
-  function closeModal() {
-    setIsOpen(false);
-  }
-  return (
-    <Fragment>
-      <button onClick={openModal}>Add Reflection</button>
-      <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <button onClick={closeModal}>close</button>
-        <br />
-        <div>I am a modal</div>
-        <div>
-          <MoodForm closeModal={() => setIsOpen(false)} />
-        </div>
-      </Modal>
+    function closeModal() {
+        setIsOpen(false);
+    }
+    return (
+        <Fragment>
+            <div id="body">
+                <button onClick={openModal}>Add Reflection</button>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onAfterOpen={afterOpenModal}
+                    onRequestClose={closeModal}
+                    style={customStyles}
+                    contentLabel="Example Modal"
+                >
+                    <button onClick={closeModal}>close</button>
+                    <br />
+                    <div>I am a modal</div>
+                    <div>
+                        <MoodForm closeModal={() => setIsOpen(false)} />
+                    </div>
+                </Modal>
 
-      <HeatMap />
-      {/* <MoodForm /> */}
-      {/* <Moods /> */}
-      <BarPlot />
-      <BarPlotBad />
-      <BPSleep />
-      <BPSleepBad />
-    </Fragment>
-  );
+                <div className="grid-container">
+                    <div className="grid-item">
+                        <HeatMap />
+                    </div>
+                </div>
+                {/* <MoodForm /> */}
+                {/* <Moods /> */}
+
+                <div className="grid-container-graphs">
+                    <div class="grid-item-graph">
+                        <BarPlot />
+                    </div>
+                    <div class="grid-item-graph">
+                        <BarPlotBad />
+                    </div>
+                    <div class="grid-item-graph">
+                        <BPSleep />
+                    </div>
+                    <div class="grid-item-graph">
+                        <BPSleepBad />
+                    </div>
+                </div>
+            </div>
+        </Fragment>
+    );
 }
 
 export default Dashboard;

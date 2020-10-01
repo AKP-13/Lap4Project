@@ -65,20 +65,20 @@ class heatMap extends Component {
                 newArr[idx] = ourarray[i];
                 i++;
             }
-        }
-        replaceFunc(moodsArr, ourmoods)
+        };
+        replaceFunc(moodsArr, ourmoods);
         //need the following arrays for the heatmap on click
-        let sleepQArr = new Array(dateArr.length).fill(0)
-        let exerciseQArr= new Array(dateArr.length).fill(0)
-        let dietQArr = new Array(dateArr.length).fill(0)
-        let sleepHArr = new Array(dateArr.length).fill(0)
-        let notesArr = new Array(dateArr.length).fill("")
-        
-        replaceFunc(sleepQArr, oursleepQ)
-        replaceFunc(exerciseQArr, ourexerciseQ)
-        replaceFunc(dietQArr, ourdietQ)
-        replaceFunc(sleepHArr, oursleephours)
-        replaceFunc(notesArr, ournotes)
+        let sleepQArr = new Array(dateArr.length).fill(0);
+        let exerciseQArr = new Array(dateArr.length).fill(0);
+        let dietQArr = new Array(dateArr.length).fill(0);
+        let sleepHArr = new Array(dateArr.length).fill(0);
+        let notesArr = new Array(dateArr.length).fill("");
+
+        replaceFunc(sleepQArr, oursleepQ);
+        replaceFunc(exerciseQArr, ourexerciseQ);
+        replaceFunc(dietQArr, ourdietQ);
+        replaceFunc(sleepHArr, oursleephours);
+        replaceFunc(notesArr, ournotes);
         // console.log(sleepQArr)
 
         //new date array in string format to compare to days, we wanna splice on first Monday
@@ -135,11 +135,11 @@ class heatMap extends Component {
 
         result.unshift(firstArr);
         const data = result;
-        //function to convert the x,y cords from heatmap to the index in the array, will get invoked onclicking heatmap square 
-        const convertToIndex = (x,y) => {
-            let heatmapIndex = 7*y + x
-            return heatmapIndex
-        }
+        //function to convert the x,y cords from heatmap to the index in the array, will get invoked onclicking heatmap square
+        const convertToIndex = (x, y) => {
+            let heatmapIndex = 7 * y + x;
+            return heatmapIndex;
+        };
         return (
             <div style={{ fontSize: "13px" }}>
                 <HeatMap
@@ -147,11 +147,30 @@ class heatMap extends Component {
                     yLabels={yLabels}
                     xLabelsLocation={"bottom"}
                     xLabelsVisibility={xLabelsVisibility}
-                    xLabelWidth={60}
+                    xLabelWidth={130}
                     data={data}
-                    squares
-                    height={45}
-                    onClick={(x, y) => alert(`Clicked index ${convertToIndex(x, y)}, \nDate: ${dateArr[convertToIndex(x, y)-num].substring(0,10)}, \nMood Level: ${result[y][x]}, \nSleep Quality: ${sleepQArr[convertToIndex(x, y)-num]}, \nExercise Quality: ${exerciseQArr[convertToIndex(x, y)-num]}, \nDiet Quality: ${dietQArr[convertToIndex(x, y)-num]}, \nHours of Sleep: ${sleepHArr[convertToIndex(x, y)-num]}, \nNotes: ${notesArr[convertToIndex(x, y)-num]}`)}
+                    rectangles
+                    height={70}
+                    onClick={(x, y) =>
+                        alert(
+                            `Clicked index ${convertToIndex(
+                                x,
+                                y
+                            )}, \nDate: ${dateArr[
+                                convertToIndex(x, y) - num
+                            ].substring(0, 10)}, \nMood Level: ${
+                                result[y][x]
+                            }, \nSleep Quality: ${
+                                sleepQArr[convertToIndex(x, y) - num]
+                            }, \nExercise Quality: ${
+                                exerciseQArr[convertToIndex(x, y) - num]
+                            }, \nDiet Quality: ${
+                                dietQArr[convertToIndex(x, y) - num]
+                            }, \nHours of Sleep: ${
+                                sleepHArr[convertToIndex(x, y) - num]
+                            }, \nNotes: ${notesArr[convertToIndex(x, y) - num]}`
+                        )
+                    }
                     //🎉🎉🎉🎉we could add something prettier than an alert, looks pretty ugly🎉🎉🎉🎉
                     cellStyle={(background, value, min, max, data, x, y) => ({
                         background: `rgb(0, 151, 230, ${
@@ -159,6 +178,7 @@ class heatMap extends Component {
                         })`,
                         fontSize: "0px",
                         color: "#444",
+                        borderRadius: "5px",
                     })}
                     cellRender={(value) => value && <div>{value}</div>}
                 />

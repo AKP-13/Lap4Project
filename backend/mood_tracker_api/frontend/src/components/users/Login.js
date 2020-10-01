@@ -38,51 +38,58 @@ export class Login extends Component {
           </div>
           {/* -----grid 2----- */}
           <div className="grid-item2">
-            <h2 className="titletext">Login</h2>
-            <form onSubmit={this.onSubmit}>
-              {/* start of form-container */}
-              <div className="form-container">
-                {/* start of input container */}
-                <div className="input-container">
-                  {/* input username  */}
-                  <input
-                    type="text"
-                    className="input-line"
-                    name="username"
-                    onChange={this.onChange}
-                    placeholder="Username"
-                    value={username}
-                    required
-                  />
-                  <br />
+            {/* grid 2-1 */}
+            <div className="grid-item2-1">
+              <h2 className="titletext">Login</h2>
+              <form onSubmit={this.onSubmit}>
+                {/* start of form-container */}
+                <div className="form-container">
+                  {/* start of input container */}
+                  <div className="input-container">
+                    {/* input username  */}
+                    <input
+                      type="text"
+                      className="input-line"
+                      name="username"
+                      onChange={this.onChange}
+                      placeholder="Username"
+                      value={username}
+                      required
+                    />
+                    <br />
 
-                  {/* input password */}
-                  <input
-                    type="password"
-                    className="input-line"
-                    name="password"
-                    placeholder="Password"
-                    onChange={this.onChange}
-                    value={password}
-                    required
-                  />
-                  <br />
+                    {/* input password */}
+                    <input
+                      type="password"
+                      className="input-line"
+                      name="password"
+                      placeholder="Password"
+                      onChange={this.onChange}
+                      value={password}
+                      required
+                    />
+                    <br />
 
-                  <button type="submit" class="ghost-round">
-                    Login
-                  </button>
+                    <button type="submit" class="ghost-round">
+                      Login
+                    </button>
 
-                  <p className="subtitle">
-                    Don't have an account? <Link to="/register">Register</Link>
-                  </p>
+                    <p className="subtitle">
+                      Don't have an account?{" "}
+                      <Link to="/register">Register</Link>
+                    </p>
+                  </div>
+                  {/* end of input container */}
                 </div>
-                {/* end of input container */}
-              </div>
-              {/* end of form container */}
-            </form>
-          </div>
-          <div className="grid-item3">
-            <img />
+                {/* end of form container */}
+              </form>
+            </div>
+            {/* end grid 2-1 */}
+            {/* start grid 2-2 */}
+            <div className="grid-item2-2">
+              <img src="https://cdn.dribbble.com/users/879147/screenshots/6138805/robin_care_4_4x.jpg?compress=1&resize=800x600" />
+            </div>
+            {/* end grid 2-2 */}
           </div>
           {/* -----end of grid 2----- */}
         </div>

@@ -36,7 +36,7 @@ class JournalForm extends Component {
       <div>
         <h1>Journal</h1>
         <form id="journalForm" onSubmit={this.onSubmit}>
-          <label htmlFor="date">Date</label>
+          <label htmlFor="date">Date:</label>
           <input
             id="date"
             className="form-control"
@@ -45,8 +45,8 @@ class JournalForm extends Component {
             onChange={this.onChange}
             value={date}
           />
-
-          <label htmlFor="journal">Journal your day</label>
+          <br />
+          {/* <label htmlFor="journal">Journal your day</label> */}
           <textarea
             id="journal"
             name="journal"
@@ -56,7 +56,8 @@ class JournalForm extends Component {
             value={journal}
             placeholder="Thoughts for the day..."
           ></textarea>
-          <input type="submit"></input>
+          <br />
+          <input type="submit" value="Add to my journal"></input>
         </form>
       </div>
     );

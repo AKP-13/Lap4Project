@@ -12,9 +12,8 @@ html {
 }
 
 .grid-item2 {
-}
-
-.grid-item3 {
+  display: grid;
+  grid-template-rows: 1fr 1r;
 }
 
 /* brand text */
@@ -52,11 +51,11 @@ html {
 
 /* form container */
 .form-container {
-  padding-left: 25px;
-  padding-right: 25px;
-  display: -webkit-box;
+  /* padding-left: 25px;
+  padding-right: 25px; */
+  /* display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
+  display: -ms-flexbox; */
   display: flex;
   -webkit-flex-flow: column;
   -ms-flex-flow: column;
@@ -68,8 +67,8 @@ html {
 .input-container {
   text-align: center;
 
-  padding-left: 200px;
-  padding-right: 200px;
+  /* padding-left: 50px;
+  padding-right: 50px; */
 }
 /* input form */
 input {

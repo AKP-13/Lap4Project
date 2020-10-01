@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
+import "./Header.css";
 
 export class Header extends Component {
   static propTypes = {
@@ -19,9 +20,6 @@ export class Header extends Component {
           <strong>{user ? `Welcome ${user.username}` : ""}</strong>
         </span>
         <li>
-          <button onClick={this.props.logout}>Logout</button>
-        </li>
-        <li>
           <NavLink to="/">Home</NavLink>
         </li>
         <li>
@@ -29,6 +27,9 @@ export class Header extends Component {
         </li>
         <li>
           <NavLink to="/alljournals">All Journal Entires</NavLink>
+        </li>
+        <li>
+          <button onClick={this.props.logout}>Logout</button>
         </li>
       </ul>
     );

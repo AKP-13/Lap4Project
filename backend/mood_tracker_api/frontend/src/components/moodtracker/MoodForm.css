@@ -1,0 +1,48 @@
+label {
+    font-weight: 600;
+}
+
+#new-mood-input-title {
+    color: #679b9b;
+}
+
+.inputform6 {
+    padding: 10px 5px;
+    margin: 10px 10px;
+    width: 170px;
+}
+
+.inputform7 {
+    padding: 15px 5px;
+    margin: 10px 10px;
+    width: 170px;
+}
+
+/* Submit button */
+.ghost-round7 {
+    margin-top: 20px;
+    cursor: pointer;
+    background: none;
+    border: 1px solid #679b9b;
+    border-radius: 25px;
+    color: #679b9b;
+    font-size: 19px;
+    font-size: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    line-height: 2.5em;
+    margin-bottom: 25px;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    padding-left: 25px;
+    padding-right: 25px;
+    text-align: center;
+    margin-right: 30px;
+}
+
+.ghost-round7:hover {
+    background: rgba(214, 147, 147, 0.15);
+    color: #679b9b;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}

@@ -20,6 +20,11 @@ font-family: "Roboto", sans-serif; */
 }
 
 /* text */
+
+.anchor {
+    color: #6886c5;
+}
+
 /* brand text */
 .brandtext {
     font-family: "Montserrat", sans-serif;
@@ -29,6 +34,7 @@ font-family: "Roboto", sans-serif; */
     font-size: 60px;
     font-size: 2.5rem;
     letter-spacing: 0.2em;
+    color: #6886c5;
     /* check smoothing */
 }
 
@@ -41,6 +47,7 @@ font-family: "Roboto", sans-serif; */
     text-align: center;
     font-size: 2.1rem;
     letter-spacing: 0.3rem;
+    color: #6886c5;
 }
 
 /* subtitle text */
@@ -116,13 +123,17 @@ input {
 
 .ghost-round:hover {
     background: rgba(214, 147, 147, 0.15);
-    color: #fff;
+    color: rgba(229, 155, 155, 0.863);
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
 }
 
 button:focus {
     outline: none;
+}
+
+a {
+    color: #6886c5;
 }
 
 @media (max-width: 500px) {

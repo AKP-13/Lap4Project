@@ -22,7 +22,7 @@ export class Header extends Component {
                 <span className="navwelcome">
                     <strong>{user ? `Welcome, ${user.username}` : ""}</strong>
                 </span>
-                <li className="navtext1">
+                <li className="navtext">
                     <NavLink className="navlink" to="/">
                         Home
                     </NavLink>

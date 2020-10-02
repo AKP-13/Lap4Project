@@ -14,6 +14,7 @@ h1 {
 #journalformheader {
     font-size: 25px;
     margin-top: 10px;
+    color: #6886c5;
 }
 
 #addjournal {
@@ -24,9 +25,9 @@ h1 {
     height: 50px;
     cursor: pointer;
     background: none;
-    border: 1px solid rgba(218, 190, 190, 0.808);
+    border: 1px solid rgba(200, 211, 234, 0.808);
     border-radius: 25px;
-    color: rgba(229, 155, 155, 0.65);
+    color: rgb(104, 134, 197);
     line-height: 2.5em;
 }
 
@@ -39,6 +40,11 @@ h1 {
 }
 
 #addjournal:hover {
-    background: rgba(214, 147, 147, 0.15);
-    color: rgba(229, 155, 155, 1);
+    background: rgba(104, 134, 197, 0.2);
+    color: rgb(104, 134, 197);
+}
+
+#journal:focus {
+    box-shadow: black;
+    outline: 0;
 }

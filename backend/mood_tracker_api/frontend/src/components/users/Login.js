@@ -75,7 +75,9 @@ export class Login extends Component {
 
                                     <p className="subtitle">
                                         Don't have an account?{" "}
-                                        <Link to="/register">Register</Link>
+                                        <Link className="anchor" to="/register">
+                                            Register
+                                        </Link>
                                     </p>
                                 </form>
                             </div>

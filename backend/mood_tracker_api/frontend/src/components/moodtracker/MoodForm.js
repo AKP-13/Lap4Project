@@ -69,12 +69,11 @@ class MoodForm extends Component {
         } = this.state;
         return (
             <Fragment>
-                <h2>Add new mood data</h2>
+                <h2 id="new-mood-input-title">Add new mood data</h2>
                 <form onSubmit={this.onSubmit}>
                     <div>
-                        <label>Date</label>
                         <input
-                            className="form-control"
+                            className="inputform6"
                             type="date"
                             name="date"
                             onChange={this.onChange}
@@ -83,91 +82,91 @@ class MoodForm extends Component {
                         />
                     </div>
                     {/* Add Mood Level */}
-                    <div className="form-group">
-                        <label>Mood-level</label>
+                    <div className="form1">
                         <input
                             max="5"
                             min="1"
-                            className="form-control"
+                            className="inputform6"
                             type="number"
                             name="moodlevel"
+                            placeholder="Mood-level"
                             onChange={this.onChange}
                             value={moodlevel}
                             required
                         />
                     </div>
                     {/* Add Exercise Level */}
-                    <div className="form-group">
-                        <label>Exercise-level</label>
+                    <div className="form1">
                         <input
                             max="3"
                             min="1"
-                            className="form-control"
+                            className="inputform6"
                             type="number"
                             name="exerciseQuality"
+                            placeholder="Exercise-level"
                             onChange={this.onChange}
                             value={exerciseQuality}
                             required
                         />
                     </div>
                     {/* Add Sleep Quality Level */}
-                    <div className="form-group">
-                        <label>Sleep Quality</label>
+                    <div className="form1">
                         <input
                             max="3"
                             min="1"
-                            className="form-control"
+                            className="inputform6"
                             type="number"
                             name="sleepQuality"
                             onChange={this.onChange}
+                            placeholder="Sleep-Quality"
                             value={sleepQuality}
                             required
                         />
                     </div>
                     {/* Add Sleep Hours */}
-                    <div className="form-group">
-                        <label>Sleep Hours</label>
+                    <div className="form1">
                         <input
                             max="24"
                             min="0"
-                            className="form-control"
+                            className="inputform6"
                             type="number"
                             name="sleepHours"
+                            placeholder="Sleep-Hours"
                             onChange={this.onChange}
                             value={sleepHours}
                             required
                         />
                     </div>
                     {/* Add Diet Quality */}
-                    <div className="form-group">
-                        <label>Diet Quality</label>
+                    <div className="form1">
                         <input
                             max="3"
                             min="1"
-                            className="form-control"
+                            className="inputform6"
                             type="number"
                             name="dietQuality"
                             onChange={this.onChange}
+                            placeholder="Diet-Quality"
                             value={dietQuality}
                             required
                         />
                     </div>
 
                     {/* Add Notes */}
-                    <div className="form-group">
-                        <label>Notes</label>
+                    <div className="form1">
                         <input
-                            className="form-control"
+                            className="inputform7"
                             type="textarea"
                             maxLength="200"
                             name="notes"
+                            placeholder="Notes"
                             onChange={this.onChange}
                             value={notes}
                         />
                     </div>
 
-                    <div className="form-group">
-                        <button type="submit" className="btn btn-primary">
+                    <div className="form1">
+                        <button type="submit" className="ghost-round7">
                             Submit
                         </button>
                     </div>

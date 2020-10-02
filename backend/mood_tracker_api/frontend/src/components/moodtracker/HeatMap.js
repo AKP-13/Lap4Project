@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getMoods, deleteMood } from "../../actions/moods";
 
-const yLabels = ["Week1", "Week2", "Week3", "Week4", "Week5"];
+const yLabels = ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5"];
 const xLabels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const xLabelsVisibility = new Array(7).fill(true);
 
@@ -20,6 +20,7 @@ class heatMap extends Component {
         this.props.getMoods();
         // console.log("component Did Mount");
     }
+
     render() {
         // Heat Map Logic
         //make a montly dates array to compare
@@ -141,7 +142,7 @@ class heatMap extends Component {
             return heatmapIndex;
         };
         return (
-            <div style={{ fontSize: "13px" }}>
+            <div style={{ fontSize: "11px" }}>
                 <HeatMap
                     xLabels={xLabels}
                     yLabels={yLabels}
@@ -153,10 +154,7 @@ class heatMap extends Component {
                     height={70}
                     onClick={(x, y) =>
                         alert(
-                            `Clicked index ${convertToIndex(
-                                x,
-                                y
-                            )}, \nDate: ${dateArr[
+                            `Date: ${dateArr[
                                 convertToIndex(x, y) - num
                             ].substring(0, 10)}, \nMood Level: ${
                                 result[y][x]

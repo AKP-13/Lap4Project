@@ -34,9 +34,11 @@ class JournalForm extends Component {
         const { journal, date } = this.state;
         return (
             <div>
-                <h1>Journal</h1>
+                <h1 id="journalformheader">Journal</h1>
                 <form id="journalForm" onSubmit={this.onSubmit}>
-                    <label htmlFor="date">Date:</label>
+                    <label id="datelabel" htmlFor="date">
+                        Date:
+                    </label>
                     <input
                         id="date"
                         className="form-control"
@@ -50,14 +52,18 @@ class JournalForm extends Component {
                     <textarea
                         id="journal"
                         name="journal"
-                        rows="5"
-                        cols="33"
+                        rows="15"
+                        cols="45"
                         onChange={this.onChange}
                         value={journal}
                         placeholder="Thoughts for the day..."
                     ></textarea>
                     <br />
-                    <input type="submit" value="Add to my journal"></input>
+                    <input
+                        id="addjournal"
+                        type="submit"
+                        value="Add to my journal"
+                    ></input>
                 </form>
             </div>
         );

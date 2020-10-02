@@ -2,3 +2,136 @@
 
 /* font-family: "Montserrat", sans-serif;
 font-family: "Roboto", sans-serif; */
+
+/* css grid */
+
+/* .wrapper4 {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  margin-left: 40%;
+  margin-right: 35%;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.grid-item4 {
+}
+.grid-item5 {
+} */
+
+/* text */
+/* title text */
+.titletext {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    /* text-align: center; */
+    font-size: 2.1rem;
+    letter-spacing: 0.3rem;
+}
+
+/* subtitle text */
+.subtitle2 {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    line-height: 0.8em;
+    font-weight: 100;
+    font-size: 1rem;
+
+    letter-spacing: 0.02rem;
+    padding-bottom: 10px;
+    color: grey;
+}
+
+/* subtitle text */
+.subtitle1 {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1em;
+    font-weight: 100;
+    letter-spacing: 0.02rem;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+/* input form */
+.inputform {
+    text-align: center;
+}
+input {
+    border: none;
+}
+
+.input-line1 {
+    background-color: transparent;
+    margin-bottom: 10px;
+    line-height: 2em;
+    color: rgb(51, 22, 22);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.02rem;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(206, 142, 142, 0.65);
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    margin-top: 15px;
+}
+
+.input-line1:focus {
+    outline: none;
+    border-color: rgb(99, 63, 63);
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+/* Submit button */
+.ghost-round2 {
+    margin-top: 5px;
+    /* text-align: center; */
+    cursor: pointer;
+    background: none;
+    border: 1px solid rgba(218, 190, 190, 0.808);
+    border-radius: 25px;
+    color: rgba(229, 155, 155, 0.65);
+    font-size: 19px;
+    font-size: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    line-height: 2.5em;
+    margin-bottom: 10px;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+/* how data is used */
+.ghost-round1 {
+    margin-top: 15px;
+    cursor: pointer;
+    background: none;
+    border: 1px solid rgba(218, 190, 190, 0.808);
+    border-radius: 10px;
+    color: rgba(229, 155, 155, 0.65);
+    font-size: 0.8rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    line-height: 2.5em;
+    margin-bottom: 25px;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.ghost-round1:hover {
+    background: rgba(214, 147, 147, 0.15);
+    color: #fff;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+button:focus {
+    outline: none;
+}

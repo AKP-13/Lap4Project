@@ -18,35 +18,41 @@ export class Header extends Component {
         const { isAuthenticated, user } = this.props.auth;
 
         const authLinks = (
-            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-                <span className="navbar-text mr-3">
+            <ul className="navlist">
+                <span className="navwelcome">
                     <strong>{user ? `Welcome, ${user.username}` : ""}</strong>
                 </span>
-                <li>
-                    <NavLink to="/">Home</NavLink>
+                <li className="navtext1">
+                    <NavLink className="navlink" to="/">
+                        Home
+                    </NavLink>
                 </li>
-                <li>
-                    <NavLink to="/moodtracker">Mood Tracker</NavLink>
+                <li className="navtext">
+                    <NavLink className="navlink" to="/moodtracker">
+                        Mood Tracker
+                    </NavLink>
                 </li>
-                <li>
-                    <NavLink to="/alljournals">All Journal Entires</NavLink>
+                <li className="navtext">
+                    <NavLink className="navlink" to="/alljournals">
+                        Journal
+                    </NavLink>
                 </li>
-                <li>
+                <li className="navtext">
                     <button id="logoutButton" onClick={this.props.logout}>
-                        <FontAwesomeIcon icon={faSignInAlt} />
+                        Logout
                     </button>
                 </li>
             </ul>
         );
 
         const guestLinks = (
-            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-                <li className="nav-item">
+            <ul className="navguestlist">
+                <li className="navtext">
                     <Link to="/register" className="nav-link">
                         Register
                     </Link>
                 </li>
-                <li className="nav-item">
+                <li className="navtext">
                     <Link to="/login" className="nav-link">
                         <FontAwesomeIcon icon={faSignOutAlt} />
                     </Link>
@@ -55,7 +61,7 @@ export class Header extends Component {
         );
 
         return (
-            <nav className="navbar navbar-expand-sm navbar-light bg-light">
+            <nav className="navbar">
                 <div className="container">
                     {isAuthenticated ? authLinks : guestLinks}
                 </div>

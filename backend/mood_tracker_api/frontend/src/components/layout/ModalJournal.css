@@ -1,0 +1,38 @@
+#closemodal {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    /* position: relative;
+    right: calc(50% - 50px); */
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: 1px solid rgba(166, 193, 190, 0.808);
+    border-radius: 25px;
+    color: rgba(84, 120, 116, 0.65);
+    /* line-height: 2.5em;
+    */
+    margin: 0 auto;
+    display: block;
+}
+
+#mymodal {
+    width: 50%;
+    height: 65%;
+}
+
+#addToJournal {
+    margin: 0 auto;
+    display: block;
+    padding: 30px;
+    border: none;
+    border-radius: 30%;
+    cursor: pointer;
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+
+#addToJournal:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

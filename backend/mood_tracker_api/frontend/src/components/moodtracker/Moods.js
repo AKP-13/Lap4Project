@@ -2,6 +2,8 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getMoods, deleteMood } from "../../actions/moods";
+import Header from "../layout/Header";
+import "./Mood.css";
 
 class Moods extends Component {
     static propTypes = {
@@ -20,25 +22,53 @@ class Moods extends Component {
         console.log(this.props.moods);
         return (
             <Fragment>
-                <h2>Moods:</h2>
+                <Header />
+                <h2 className="titletext1">Moods:</h2>
+
                 {/* map over moods */}
                 {this.props.moods.map((mood) => {
                     return (
                         <Fragment key={mood.id}>
-                            <h2>
-                                Mood Id: {mood.id} | Mood Date: {mood.date} |
-                                Mood Level:
-                                {mood.moodlevel}
-                            </h2>
-                            {/* delete button */}
-                            <button
-                                onClick={this.props.deleteMood.bind(
-                                    this,
-                                    mood.id
-                                )}
-                            >
-                                Delete
-                            </button>
+                            <div className="moodbox-wrapper">
+                                <div className="item1">
+                                    <div class="moodtext">
+                                        <h3 className="subtitle3">
+                                            Mood Date: {mood.date}
+                                        </h3>
+                                        <h3 className="subtitle4">
+                                            Exercise Level:{" "}
+                                            {mood.exerciseQuality}
+                                        </h3>
+                                        <h3 className="subtitle4">
+                                            Sleep Quality: {mood.sleepQuality}
+                                        </h3>
+                                        <h3 className="subtitle4">
+                                            Sleep Hours: {mood.sleepHours}
+                                        </h3>
+                                        <h3 className="subtitle4">
+                                            Diet Quality: {mood.dietQuality}
+                                        </h3>
+                                        <h3 className="subtitle4">
+                                            Notes:{" "}
+                                            <h3 className="notestext">
+                                                {mood.notes}
+                                            </h3>
+                                        </h3>
+                                    </div>
+                                </div>
+                                {/* item 2 */}
+                                <div className="item2">
+                                    <button
+                                        class="ghost-round4"
+                                        onClick={this.props.deleteMood.bind(
+                                            this,
+                                            mood.id
+                                        )}
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
                         </Fragment>
                     );
                 })}

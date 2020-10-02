@@ -10,6 +10,7 @@ import Modal from "react-modal";
 import "./Dashboard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import Header from "../layout/Header";
 
 const customStyles = {
     content: {
@@ -41,7 +42,10 @@ function Dashboard() {
     return (
         <Fragment>
             <div id="body">
-                <h1>October 2020</h1>
+                {/* <h1 id="zero"></h1> */}
+                <Header />
+                <h2 id="titletext1">October 2020</h2>
+
                 <div className="grid-container">
                     <div className="grid-item">
                         <HeatMap />

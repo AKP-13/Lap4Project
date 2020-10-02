@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { getJournal, deleteJournal } from "../../actions/journal";
 import ModalJournal from "../layout/ModalJournal";
 import "./AllJournals.css";
+import Header from "../layout/Header";
 
 class AllJournals extends Component {
     static propTypes = {
@@ -22,23 +23,36 @@ class AllJournals extends Component {
         console.log(this.props.journals);
         return (
             <Fragment>
+                <Header />
+
+                <h1 className="titletext2">Journal Entries</h1>
                 <ModalJournal />
-                <h1>Journal Entries</h1>
                 {/* map over journals */}
                 {this.props.journals.map((journal) => {
                     return (
                         <Fragment key={journal.id}>
-                            <div id="journalEntries">
-                                <h2>{journal.date}</h2>
-                                <p>{journal.journal}</p>
-                                <button
-                                    onClick={this.props.deleteJournal.bind(
-                                        this,
-                                        journal.id
-                                    )}
-                                >
-                                    Delete
-                                </button>
+                            <div className="moodbox-wrapper1">
+                                <div className="item1">
+                                    <div id="moodtext">
+                                        <h2 className="subtitle5">
+                                            {journal.date}
+                                        </h2>
+                                        <h2 className="subtitle6">
+                                            {journal.journal}
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div className="item2">
+                                    <button
+                                        class="ghost-round5"
+                                        onClick={this.props.deleteJournal.bind(
+                                            this,
+                                            journal.id
+                                        )}
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
                             </div>
                         </Fragment>
                     );

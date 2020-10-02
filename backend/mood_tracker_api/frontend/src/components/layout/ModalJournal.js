@@ -1,6 +1,9 @@
 import React, { Fragment } from "react";
 import Modal from "react-modal";
 import JournalForm from "../moodtracker/JournalForm";
+import "./ModalJournal.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const customStyles = {
     content: {
@@ -32,15 +35,20 @@ function ModalJournal() {
 
     return (
         <Fragment>
-            <button onClick={openModal}>Add Journal Entry</button>
+            <button id="addToJournal" onClick={openModal}>
+                <FontAwesomeIcon icon={faPlus} />
+            </button>
             <Modal
+                id="mymodal"
                 isOpen={modalIsOpen}
                 onAfterOpen={afterOpenModal}
                 onRequestClose={closeModal}
                 style={customStyles}
                 contentLabel="Example Modal"
             >
-                <button onClick={closeModal}>close</button>
+                <button id="closemodal" onClick={closeModal}>
+                    Cancel
+                </button>
                 <br />
                 <div>
                     <JournalForm closeModal={() => setIsOpen(false)} />
